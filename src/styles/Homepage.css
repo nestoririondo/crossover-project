@@ -7,7 +7,7 @@
   opacity: 0.5;
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .homepage {
@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   border-radius: 5px;
 
@@ -25,20 +25,34 @@
 
 .homepage h1 {
   font-size: 3rem;
-  color: #000000;
+  color: #fffdfd;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .homepage h2 {
   font-size: 2rem;
-  color: #070707;
+  color: #fffdfd;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.homepage h3 {
+  font-size: 1.5rem;
+  color: #fffdfd;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.homepage p {
+  font-size: 1.2rem;
+  color: #fffdfd;
   text-align: center;
   margin-bottom: 20px;
 }
 
 
-form {
+.homepage form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,20 +68,49 @@ form {
     color: #fff;
 }
 
-form input {
-    width: auto;
+.homepage form label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #b1b1b1;
+}
+
+.homepage form select {
+    width: 5rem;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
 }
 
-form button {
-    width: auto;
+.homepage form input {
+    width: 5rem;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.homepage form button {
+    width: 6rem;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1.2rem;
 
+}
+
+.homepage form button:hover {
+    background-color: #5c5c5c;
+}
+.next-btn {
+  margin-top: 2rem;
+}
+
+.daily-objective{
+  margin-top: 2rem;
+}
+
+.letsgetstarted {
+padding: 2rem;
 }
