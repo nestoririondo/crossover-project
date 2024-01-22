@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useContext } from 'react';
+import { useContext } from "react";
 import { NutritionContext } from "../provider/NutritionContext";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Search = () => {
-  const {search, setSearch} = useContext(NutritionContext);
+  const { search, setSearch } = useContext(NutritionContext);
   const [searchInput, setSearchInput] = useState("");
   const [apiRequest, setApiRequest] = useState(null);
-  const [grams, setGrams] = useState(0)
+  const [grams, setGrams] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -42,7 +42,7 @@ const Search = () => {
   };
 
   const handleGramChange = (e) => {
-    setGrams(e.target.value)
+    setGrams(e.target.value);
   };
 
   return (
@@ -54,8 +54,6 @@ const Search = () => {
           value={searchInput}
           onChange={handleChange}
         />
-        <label htmlFor="grams">Grams:</label>
-        <input type="number" id="grams" name="grams" onChange={handleGramChange}/>
         <button type="submit">Search</button>
       </form>
       {search &&
