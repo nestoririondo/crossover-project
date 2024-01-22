@@ -7,9 +7,20 @@ export const Provider = ({ children }) => {
   const [formattedResults, setFormattedResults] = useState([]);
   const [allSelections, setAllSelections] = useState({});
 
-  const value = { allNutritions, setAllNutritions, search, setSearch, formattedResults, setFormattedResults, allSelections, setAllSelections };
-
-  
-    return <NutritionContext.Provider value={value}>{children}</NutritionContext.Provider>;
+  const value = {
+    allNutritions,
+    setAllNutritions,
+    search,
+    setSearch,
+    formattedResults,
+    setFormattedResults,
+    allSelections,
+    setAllSelections,
   };
 
+  return (
+    <NutritionContext.Provider value={value}>
+      {children}
+    </NutritionContext.Provider>
+  );
+};

@@ -28,69 +28,43 @@ const TotalResults = () => {
   const totalProtein = calculateTotal(formattedResults, "protein");
   const totalFat = calculateTotal(formattedResults, "fat");
 
-  const calcBMR = (dailyObjective) => {
-    return dailyObjective.gender === "male"
+  const calcBMR = (allSelections) => {
+    return allSelections.gender === "male"
       ? 66.5 +
-          13.75 * dailyObjective.weight +
-          5 * dailyObjective.height -
-          6.75 * dailyObjective.age
+          13.75 * allSelections.weight +
+          5 * allSelections.height -
+          6.75 * allSelections.age
       : 655.1 +
-          9.563 * dailyObjective.weight +
-          1.85 * dailyObjective.height -
-          4.676 * dailyObjective.age;
+          9.563 * allSelections.weight +
+          1.85 * allSelections.height -
+          4.676 * allSelections.age;
   };
 
-  const calcProtein = (dailyObjective) => {
+  const calcProtein = (allSelections) => {
     return {
-      min: dailyObjective.weight * 1.4,
-      max: dailyObjective.weight * 2.4,
+      min: (allSelections.weight * 1.4).toFixed(2),
+      max: (allSelections.weight * 2.4).toFixed(2),
     };
   };
 
-  const calcFat = (dailyObjective) => {
+  const calcFat = (allSelections) => {
     return {
-      min: dailyObjective.weight * 0.3,
-      max: dailyObjective.weight * 0.4,
+      min: (allSelections.weight * 0.3).toFixed(2),
+      max: (allSelections.weight * 0.4).toFixed(2),
     };
   };
 
-  const calcCarbs = (dailyObjective) => {
+  const calcCarbs = (allSelections) => {
     return {
-      min: dailyObjective.weight * 1.5,
-      max: dailyObjective.weight * 2,
+      min: (allSelections.weight * 1.5).toFixed(2),
+      max: (allSelections.weight * 2).toFixed(2),
     };
   };
 
-  const dailyProtein = calcProtein(dailyObjective);
-  const dailyFat = calcFat(dailyObjective);
-  const dailyCarbs = calcCarbs(dailyObjective);
-
-  //   To calculate fat:
-
-  //       Convert body weight in pounds to kg’s (round to the nearest 10th)
-  //       150lbs / 2.2 = 68.2kg
-  //       Multiply weight in kilograms by 1
-  //       68g of fat needed per day
-
-  //       See this blog on How Much Fat Per Day for Weight Loss to learn more.
-
-  //   Third: Calculate Daily Carbohydrate needs
-
-  //   The Dietary Guidelines for Americans recommends that carbohydrates should make up 45-65% of one’s daily calories.
-
-  //   Step 1: Calculating grams of carbohydrates. Multiply daily calorie requirements by 0.45 & 0.65 to obtain calories from carbohydrates.
-
-  //       0.45(2000) = 900 calories
-  //       0.65(2000) = 1300 calories
-
-  //   Step 2: Divide answers in step 1 by 4 since there are 4 calories per 1 gram of carbohydrate
-
-  //       900/4 = 225g
-  //       1300/4 = 325g
-
-  //       See this blog on How Many Carbs Per Day for Weight Loss to learn more.
-
-  const bmr = calcBMR(dailyObjective).toFixed(2);
+  const dailyProtein = calcProtein(allSelections);
+  const dailyFat = calcFat(allSelections);
+  const dailyCarbs = calcCarbs(allSelections);
+  const bmr = calcBMR(allSelections).toFixed(2);
 
   // Men: BMR = 66.5 + (13.75 x weight in kilos) + (5 x height in cm) – (6.75 x age in years)
   // Women: BMR = 655.1 + (9.563 X weight in kilos) + (1.85 X height in cm) – (4.676 x age in years)
@@ -107,10 +81,10 @@ const TotalResults = () => {
       </div>
       <div className="objective">
         <div>Your daily objective</div>
-        <div>{dailyObjective.calories}</div>
-        <div>{dailyObjective.carbs}</div>
-        <div>{dailyObjective.protein}</div>
-        <div>{dailyObjective.fat}</div>
+        <div>{allSelections.calories}</div>
+        <div>{allSelections.carbs}</div>
+        <div>{allSelections.proteine}</div>
+        <div>{allSelections.fat}</div>
       </div>
       <div className="ideal">
         <div>Your ideal daily intake</div>
