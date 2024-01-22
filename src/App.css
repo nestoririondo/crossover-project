@@ -1,0 +1,12 @@
+.meal {
+  background-color: aliceblue;
+}
+
+.meal-data-list {
+  display: flex;
+  gap: 2rem;
+}
+
+li {
+  list-style: none;
+}
