@@ -1,6 +1,23 @@
 .meal {
   background-color: aliceblue;
-  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  max-width: 70%;
+  margin-bottom: 0.5rem;
+  img {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+
+  h3 {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .meal-data-list {
@@ -15,4 +32,15 @@
 
 li {
   list-style: none;
+}
+
+.nameAndQuantity {
+  display: flex;
+  gap: 0.5rem;
+  input {
+    height: 1rem;
+    width: 2rem;
+    border: none;
+    outline: none;
+  }
 }
