@@ -62,14 +62,14 @@ const TotalResults = () => {
   return (
     <section className="totalresults">
       <div className="consumed">
-        <div>Today you have consumed</div>
+        <h3>Today you have consumed</h3>
         <div>{totalCalories} kCal</div>
         <div>{totalCarbs} g carbs</div>
         <div>{totalProtein} g protein</div>
         <div>{totalFat} g fat</div>
       </div>
       <div className="objective">
-        <div className="your-daily">Your daily objective</div>
+        <h3 className="your-daily">Your daily objective</h3>
         {allSelections.calories && (
           <div
             className={
@@ -84,9 +84,7 @@ const TotalResults = () => {
         {allSelections.carbs && (
           <div
             className={
-              Number(totalCarbs) < Number(allSelections.carbs)
-                ? "green"
-                : "red"
+              Number(totalCarbs) < Number(allSelections.carbs) ? "green" : "red"
             }
           >
             {allSelections.carbs} <span>g carbs</span>
@@ -106,9 +104,7 @@ const TotalResults = () => {
         {allSelections.fat && (
           <div
             className={
-              Number(totalFat) < Number(allSelections.fat)
-                ? "green"
-                : "red"
+              Number(totalFat) < Number(allSelections.fat) ? "green" : "red"
             }
           >
             {allSelections.fat} <span>g fat</span>
@@ -116,13 +112,6 @@ const TotalResults = () => {
         )}
       </div>
       <div className="ideal">
-        <h3>Your daily objective</h3>
-        <p>{allSelections.calories}</p>
-        <p>{allSelections.carbs}</p>
-        <p>{allSelections.proteine}</p>
-        <p>{allSelections.fat}</p>
-      </div>
-      <div className="intake">
         <h3>Your ideal daily intake</h3>
         <p>{bmr} kCal</p>
         <p>

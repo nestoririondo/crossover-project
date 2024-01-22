@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Homepage.css";
+import "../styles/Homepage.css";
 import { useContext } from 'react';
 import { NutritionContext } from "../provider/NutritionContext";
 import { useNavigate } from 'react-router-dom/dist';

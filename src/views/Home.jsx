@@ -2,8 +2,7 @@ import Search from "../components/Search";
 import MealsToday from "../components/MealsToday";
 import TotalResults from "../components/TotalResults";
 import Footer from "../components/Footer";
-
-import "../styles/main.css";
+import "../styles/main.css"
 
 const Home = () => {
   return (
