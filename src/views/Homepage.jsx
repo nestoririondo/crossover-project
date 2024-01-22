@@ -28,29 +28,32 @@ const Homepage = () => {
     
     <div className='homepage'>
       <h1>Let's get started!</h1>
-      <h2>Fill in your details below</h2>
+      <p>Fill in your details below</p>
       <form onSubmit={handleSubmit} >
+        <h2>Personal Info:</h2>
        <label htmlFor="gender">Gender:</label>
-       <select name="gender">
+       <select name="gender" required>
         <option value="female">Female</option>
         <option value="male">Male</option>
         <option value="other">Other</option>
         </select>
-        <label htmlFor="age">Age (y):</label>
-        <input type="number" name="age"/>
+         <label htmlFor="age">Age (y):</label>
+        <input type="number" name="age" required/>
         <label htmlFor="weight">Weight (kg):</label>
-        <input type="number" name="weight"/>
+        <input type="number" name="weight" required/>
         <label htmlFor="height">Height (cm):</label>
-        <input type="number" name="height" />
-        <label htmlFor="calories">Max g Calories Today:</label>
-        <input type="number" name="calories" />
+        <input type="number" name="height" required/>
+
+        <h2>Desired Maximun amount of Nutrients Today:</h2>
+        <label htmlFor="calories">Max g Calories:</label>
+        <input type="number" name="calories" required/>
         <label htmlFor="carbs">Max g Carbs:</label>
-        <input type="number" name="carbs" />
+        <input type="number" name="carbs" required/>
         <label htmlFor="proteine">Max g Proteine:</label>
-        <input type="number" name="proteine" />
+        <input type="number" name="proteine" required/>
         <label htmlFor="fat">Max g Fat:</label>
-        <input type="number" name="fat" />
-        <button type="submit">GO</button>
+        <input type="number" name="fat" required/>
+        <button type="submit">NEXT</button>
       </form> 
     </div>
     </div>
