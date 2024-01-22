@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { NutritionContext } from "../provider/NutritionContext";
+import Meal from "./Meal";
 
 const MealsToday = () => {
-  const { allNutritions, setAllNutritions, search } = useContext(NutritionContext);
+  const { allNutritions, setAllNutritions, search, formattedResults, setFormattedResults } =
+    useContext(NutritionContext);
   const [allMeals, setAllMeals] = useState([]);
-  const [formattedResults, setFormattedResults] = useState([]);
 
   useEffect(() => {
     setAllMeals([...allMeals, ...search]);
@@ -20,15 +21,15 @@ const MealsToday = () => {
       fat: meal.fat_total_g,
     }));
 
-    console.log(dataForTotalResults);
+    console.log("All meals", allMeals);
     setFormattedResults(dataForTotalResults);
   }, [allMeals]);
 
-  useEffect(() => {
-    console.log("FORMATTED", formattedResults);
-  }, [formattedResults]);
-
-  return <div>MealsToday</div>;
+  return (
+    <section>
+      <ul>{allMeals && allMeals.map((meal) => <Meal data={meal} />)}</ul>
+    </section>
+  );
 };
 
 export default MealsToday;
