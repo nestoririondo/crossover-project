@@ -1,12 +1,11 @@
 .meal {
-  background-color: aliceblue;
+  background-color: rgba(121, 158, 158, 0.2);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  max-width: 70%;
   margin-bottom: 0.5rem;
+  padding: 1rem 0rem;
   img {
     position: absolute;
     top: 50%;
@@ -21,8 +20,10 @@
 }
 
 .meal-data-list {
+  width: 75%;
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+  font-size: 0.8rem;
 }
 
 .meal-data {
@@ -53,4 +54,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.meals-list {
+  padding: 0;
 }
