@@ -39,17 +39,15 @@ const Search = () => {
     setSearchInput(e.target.value);
   };
 
-  const handleGramChange = (e) => {
-    setGrams(e.target.value);
-  };
-
   return (
     <section id="search">
       <form onSubmit={(e) => handleSubmit(e)}>
         <input type="text" placeholder="Search" value={searchInput} onChange={handleChange} />
         <button type="submit">Search</button>
       </form>
+
     </section>
+
   );
 };
 
