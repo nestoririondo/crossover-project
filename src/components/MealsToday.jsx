@@ -27,7 +27,7 @@ const MealsToday = () => {
 
   return (
     <section>
-      <ul>{allMeals && allMeals.map((meal) => <Meal data={meal} />)}</ul>
+      <ul>{allMeals && allMeals.map((meal) => <Meal data={meal} key={meal.name} />)}</ul>
     </section>
   );
 };
