@@ -1,6 +1,7 @@
 import Search from "../components/Search";
 import MealsToday from "../components/MealsToday";
 import TotalResults from "../components/TotalResults";
+import Footer from "../components/Footer";
 
 const Home = () => {
     return ( 
@@ -10,6 +11,7 @@ const Home = () => {
             <Search />
             <MealsToday />
             <TotalResults />
+            <Footer />
         </div>
      );
 }

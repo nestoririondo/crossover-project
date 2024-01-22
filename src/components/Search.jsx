@@ -41,10 +41,6 @@ const Search = () => {
     setSearchInput(e.target.value);
   };
 
-  const handleGramChange = (e) => {
-    setGrams(e.target.value);
-  };
-
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -56,17 +52,6 @@ const Search = () => {
         />
         <button type="submit">Search</button>
       </form>
-      {search &&
-        search.map((result) => (
-          <div key={result.id}>
-            <div>{result.name}</div>
-            <div>Calories: {result.calories}</div>
-            <div>Carbs: {result.carbohydrates_total_g}</div>
-            <div>Fat: {result.fat_total_g}</div>
-            <div>Protein: {result.protein_g}</div>
-            <div>Serving size: {result.serving_size_g}</div>
-          </div>
-        ))}
     </div>
   );
 };
