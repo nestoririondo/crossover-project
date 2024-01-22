@@ -3,17 +3,19 @@ import MealsToday from "../components/MealsToday";
 import TotalResults from "../components/TotalResults";
 import Footer from "../components/Footer";
 
+import "../styles/main.css";
+
 const Home = () => {
-    return ( 
-        <div>
-            <h1>Home</h1>
-            <p>Home page content</p>
+  return (
+    <div className="page-content">
+      <main>
             <Search />
             <MealsToday />
             <TotalResults />
             <Footer />
-        </div>
-     );
-}
- 
+      </main>
+    </div>
+  );
+};
+
 export default Home;

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { NutritionContext } from "../provider/NutritionContext";
+import "../styles/search.css";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -13,12 +14,9 @@ const Search = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `https://api.api-ninjas.com/v1/nutrition?query=${searchInput}`,
-        {
-          headers: { "X-Api-Key": apiKey },
-        }
-      );
+      const response = await axios.get(`https://api.api-ninjas.com/v1/nutrition?query=${searchInput}`, {
+        headers: { "X-Api-Key": apiKey },
+      });
       setSearch(response.data);
       console.log(response.data);
     } catch (error) {
@@ -42,17 +40,14 @@ const Search = () => {
   };
 
   return (
-    <div>
+    <section id="search">
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchInput}
-          onChange={handleChange}
-        />
+        <input type="text" placeholder="Search" value={searchInput} onChange={handleChange} />
         <button type="submit">Search</button>
       </form>
-    </div>
+
+    </section>
+
   );
 };
 

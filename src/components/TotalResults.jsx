@@ -60,7 +60,7 @@ const TotalResults = () => {
 
   console.log(totalCalories, allSelections.calories);
   return (
-    <div className="totalresults">
+    <section className="totalresults">
       <div className="consumed">
         <div>Today you have consumed</div>
         <div>{totalCalories} kCal</div>
@@ -116,19 +116,26 @@ const TotalResults = () => {
         )}
       </div>
       <div className="ideal">
-        <div>Your ideal daily intake</div>
-        <div>{bmr} kCal</div>
-        <div>
-          {dailyCarbs.min} - {dailyCarbs.max} g carbs
-        </div>
-        <div>
-          {dailyProtein.min} - {dailyProtein.max} g protein
-        </div>
-        <div>
-          {dailyFat.min} - {dailyFat.max} g fat
-        </div>
+        <h3>Your daily objective</h3>
+        <p>{allSelections.calories}</p>
+        <p>{allSelections.carbs}</p>
+        <p>{allSelections.proteine}</p>
+        <p>{allSelections.fat}</p>
       </div>
-    </div>
+      <div className="intake">
+        <h3>Your ideal daily intake</h3>
+        <p>{bmr} kCal</p>
+        <p>
+          {dailyCarbs.min} - {dailyCarbs.max} g carbs
+        </p>
+        <p>
+          {dailyProtein.min} - {dailyProtein.max} g protein
+        </p>
+        <p>
+          {dailyFat.min} - {dailyFat.max} g fat
+        </p>
+      </div>
+    </section>
   );
 };
 
