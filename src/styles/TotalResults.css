@@ -1,13 +1,12 @@
 .totalresults {
   padding: 1rem 0;
   text-align: center;
-
   h3 {
     margin-bottom: 0.75rem;
   }
   .consumed,
-  .ideal,
-  .intake {
+  .objective,
+  .ideal {
     background-color: rgba(121, 158, 158, 0.2);
     padding: 1rem;
     margin-bottom: 0.75rem;
@@ -17,3 +16,10 @@
     }
   }
 }
+.green {
+  background-color: #31ed92;
+}
+.red {
+  background-color: #e66d6d;
+}
+
