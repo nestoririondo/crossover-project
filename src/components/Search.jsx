@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { NutritionContext } from "../provider/NutritionContext";
 import "../styles/search.css";
 
@@ -10,13 +10,16 @@ const Search = () => {
   const { search, setSearch } = useContext(NutritionContext);
   const [searchInput, setSearchInput] = useState("");
   const [apiRequest, setApiRequest] = useState(null);
-  const [grams, setGrams] = useState(0);
+  const theInput = useRef();
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://api.api-ninjas.com/v1/nutrition?query=${searchInput}`, {
-        headers: { "X-Api-Key": apiKey },
-      });
+      const response = await axios.get(
+        `https://api.api-ninjas.com/v1/nutrition?query=${searchInput}`,
+        {
+          headers: { "X-Api-Key": apiKey },
+        }
+      );
       setSearch(response.data);
       console.log(response.data);
     } catch (error) {
@@ -33,6 +36,7 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setApiRequest(searchInput);
+    e.target[0].value = "";
   };
 
   const handleChange = (e) => {
@@ -42,12 +46,17 @@ const Search = () => {
   return (
     <section id="search">
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input type="text" placeholder="Search" value={searchInput} onChange={handleChange} />
+        <input
+          autoFocus
+          type="text"
+          placeholder="Search"
+          ref={theInput}
+          defaultValue={searchInput}
+          onChange={handleChange}
+        />
         <button type="submit">Search</button>
       </form>
-
     </section>
-
   );
 };
 
