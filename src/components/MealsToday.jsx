@@ -28,8 +28,11 @@ const MealsToday = () => {
   return (
     <section id="meals-today">
       <ul className="meals-list">
-        {allMeals &&
-          allMeals.map((meal) => <Meal data={meal} key={meal.name} allMeals={allMeals} setAllMeals={setAllMeals} />)}
+        {allMeals.length > 0 ? (
+          allMeals.map((meal) => <Meal data={meal} key={meal.name} allMeals={allMeals} setAllMeals={setAllMeals} />)
+        ) : (
+          <p className="no-meals">No meals added today.</p>
+        )}
       </ul>
     </section>
   );

@@ -33,6 +33,7 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setApiRequest(searchInput);
+    console.log(e);
   };
 
   const handleChange = (e) => {
@@ -45,9 +46,7 @@ const Search = () => {
         <input type="text" placeholder="Search" value={searchInput} onChange={handleChange} />
         <button type="submit">Search</button>
       </form>
-
     </section>
-
   );
 };
 
