@@ -20,24 +20,11 @@ const TotalResults = () => {
     totalFat,
   };
 
-  const calcProtein = (allSelections) => {
-    return {
-      min: (allSelections.weight * 1.2).toFixed(2),
-      max: (allSelections.weight * 2.2).toFixed(2),
-    };
-  };
 
-  const calcFat = (allSelections) => {
+  const calcAmounts = (allSelections, nutrient, min, max) => {
     return {
-      min: (allSelections.weight * 0.3).toFixed(2),
-      max: (allSelections.weight * 0.4).toFixed(2),
-    };
-  };
-
-  const calcCarbs = (allSelections) => {
-    return {
-      min: (allSelections.weight * 1.5).toFixed(2),
-      max: (allSelections.weight * 2).toFixed(2),
+      min: (allSelections[nutrient] * min).toFixed(2),
+      max: (allSelections[nutrient] * max).toFixed(2),
     };
   };
 
@@ -53,9 +40,9 @@ const TotalResults = () => {
           4.676 * allSelections.age;
   };
 
-  const dailyProtein = calcProtein(allSelections);
-  const dailyFat = calcFat(allSelections);
-  const dailyCarbs = calcCarbs(allSelections);
+  const dailyProtein = calcAmounts(allSelections, "proteine", 1.2, 2.2);
+  const dailyFat = calcAmounts(allSelections, "fat", 0.3, 0.4);
+  const dailyCarbs = calcAmounts(allSelections, "carbs", 1.5, 2);
   const bmr = calcBMR(allSelections).toFixed(2);
 
   console.log(totalCalories, allSelections.calories);
