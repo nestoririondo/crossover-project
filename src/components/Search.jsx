@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useContext } from 'react';
+import { NutritionContext } from "../provider/NutritionContext";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Search = () => {
-  const [search, setSearch] = useState([]);
+  const {search, setSearch} = useContext(NutritionContext);
   const [searchInput, setSearchInput] = useState("");
   const [apiRequest, setApiRequest] = useState(null);
   const [grams, setGrams] = useState(0)
@@ -60,7 +62,7 @@ const Search = () => {
         search.map((result) => (
           <div key={result.id}>
             <div>{result.name}</div>
-            <div>Calories: {result.calories} * {{grams}/100}</div>
+            <div>Calories: {result.calories}</div>
             <div>Carbs: {result.carbohydrates_total_g}</div>
             <div>Fat: {result.fat_total_g}</div>
             <div>Protein: {result.protein_g}</div>
