@@ -30,14 +30,8 @@ const TotalResults = () => {
 
   const calcBMR = (allSelections) => {
     return allSelections.gender === "male"
-      ? 66.5 +
-          13.75 * allSelections.weight +
-          5 * allSelections.height -
-          6.75 * allSelections.age
-      : 655.1 +
-          9.563 * allSelections.weight +
-          1.85 * allSelections.height -
-          4.676 * allSelections.age;
+      ? 66.5 + 13.75 * allSelections.weight + 5 * allSelections.height - 6.75 * allSelections.age
+      : 655.1 + 9.563 * allSelections.weight + 1.85 * allSelections.height - 4.676 * allSelections.age;
   };
 
   const calcProtein = (allSelections) => {
@@ -71,35 +65,35 @@ const TotalResults = () => {
   // Source: https://www.bmi-calculator.net/bmr-calculator/
 
   return (
-    <div className="totalresults">
+    <section className="totalresults">
       <div className="consumed">
-        <div>Today you have consumed</div>
-        <div>{totalCalories} kCal</div>
-        <div>{totalCarbs} g carbs</div>
-        <div>{totalProtein} g protein</div>
-        <div>{totalFat} g fat</div>
-      </div>
-      <div className="objective">
-        <div>Your daily objective</div>
-        <div>{allSelections.calories}</div>
-        <div>{allSelections.carbs}</div>
-        <div>{allSelections.proteine}</div>
-        <div>{allSelections.fat}</div>
+        <h3>Consumed:</h3>
+        <p> {totalCalories} kCal </p>
+        <p>{totalCarbs} carbs</p>
+        <p>{totalProtein} protein</p>
+        <p>{totalFat} fat</p>
       </div>
       <div className="ideal">
-        <div>Your ideal daily intake</div>
-        <div>{bmr} kCal</div>
-        <div>
-          {dailyCarbs.min} - {dailyCarbs.max} g carbs
-        </div>
-        <div>
-          {dailyProtein.min} - {dailyProtein.max} g protein
-        </div>
-        <div>
-          {dailyFat.min} - {dailyFat.max} g fat
-        </div>
+        <h3>Your daily objective</h3>
+        <p>{allSelections.calories}</p>
+        <p>{allSelections.carbs}</p>
+        <p>{allSelections.proteine}</p>
+        <p>{allSelections.fat}</p>
       </div>
-    </div>
+      <div className="intake">
+        <h3>Your ideal daily intake</h3>
+        <p>{bmr} kCal</p>
+        <p>
+          {dailyCarbs.min} - {dailyCarbs.max} g carbs
+        </p>
+        <p>
+          {dailyProtein.min} - {dailyProtein.max} g protein
+        </p>
+        <p>
+          {dailyFat.min} - {dailyFat.max} g fat
+        </p>
+      </div>
+    </section>
   );
 };
 

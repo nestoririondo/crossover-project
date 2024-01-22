@@ -1,0 +1,22 @@
+#search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  input {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+
+  button {
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    padding: 0 1rem;
+  }
+}

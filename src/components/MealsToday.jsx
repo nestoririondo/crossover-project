@@ -26,8 +26,8 @@ const MealsToday = () => {
   }, [allMeals]);
 
   return (
-    <section>
-      <ul>
+    <section id="meals-today">
+      <ul className="meals-list">
         {allMeals &&
           allMeals.map((meal) => <Meal data={meal} key={meal.name} allMeals={allMeals} setAllMeals={setAllMeals} />)}
       </ul>

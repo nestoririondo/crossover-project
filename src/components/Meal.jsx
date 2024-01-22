@@ -32,8 +32,15 @@ const Meal = ({ data, allMeals, setAllMeals }) => {
   return (
     <li className="meal">
       <div className="nameAndQuantity">
-        <input type="quantity" defaultValue={"100"} onChange={(e) => changeGrams(data.name, e.target.value)} />g
-        <h3>{data?.name}</h3>
+        <input
+          type="number"
+          defaultValue={100}
+          onChange={(e) => changeGrams(data.name, e.target.value)}
+          onKeyPress={(e) => {
+            if (e.key === "-") e.preventDefault();
+          }}
+        />
+        g<h3>{data?.name}</h3>
       </div>
 
       <ul className="meal-data-list">
