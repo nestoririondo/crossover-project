@@ -1,6 +1,12 @@
 import "../styles/TotalResults.css";
+import { useContext } from "react";
+import { NutritionContext } from "../provider/NutritionContext";
 
 const TotalResults = () => {
+  const { formattedResults } = useContext(NutritionContext);
+
+  console.log("From TotalResults:", formattedResults);
+
   const dailyObjective = {
     calories: 2000,
     carbs: 200,
@@ -12,38 +18,14 @@ const TotalResults = () => {
     gender: "female",
   };
 
-  const testMeals = [
-    {
-      id: 0,
-      calories: 220,
-      carbs: 500,
-      protein: 20,
-      fat: 50,
-    },
-    {
-      id: 1,
-      calories: 200,
-      carbs: 456,
-      protein: 70,
-      fat: 50,
-    },
-    {
-      id: 2,
-      calories: 136,
-      carbs: 340,
-      protein: 13,
-      fat: 60,
-    },
-  ];
-
   const calculateTotal = (meals, nutrient) => {
-    return meals.reduce((acc, meal) => acc + meal[nutrient], 0);
+    return meals.reduce((acc, meal) => acc + meal[nutrient], 0).toFixed(2);
   };
 
-  const totalCalories = calculateTotal(testMeals, "calories");
-  const totalCarbs = calculateTotal(testMeals, "carbs");
-  const totalProtein = calculateTotal(testMeals, "protein");
-  const totalFat = calculateTotal(testMeals, "fat");
+  const totalCalories = calculateTotal(formattedResults, "calories");
+  const totalCarbs = calculateTotal(formattedResults, "carbs");
+  const totalProtein = calculateTotal(formattedResults, "protein");
+  const totalFat = calculateTotal(formattedResults, "fat");
 
   const calcBMR = (dailyObjective) => {
     return dailyObjective.gender === "male"
@@ -61,6 +43,7 @@ const TotalResults = () => {
 
   // Men: BMR = 66.5 + (13.75 x weight in kilos) + (5 x height in cm) – (6.75 x age in years)
   // Women: BMR = 655.1 + (9.563 X weight in kilos) + (1.85 X height in cm) – (4.676 x age in years)
+  // Source: https://www.bmi-calculator.net/bmr-calculator/
 
   return (
     <div className="totalresults">
