@@ -88,15 +88,15 @@ const TotalResults = () => {
       </div>
       <div className="ideal">
         <div>Your ideal daily intake</div>
-        <div>{bmr}</div>
+        <div>{bmr} kCal</div>
         <div>
-          {dailyCarbs.min} - {dailyCarbs.max}
+          {dailyCarbs.min} - {dailyCarbs.max} g carbs
         </div>
         <div>
-          {dailyProtein.min} - {dailyProtein.max}
+          {dailyProtein.min} - {dailyProtein.max} g protein
         </div>
         <div>
-          {dailyFat.min} - {dailyFat.max}
+          {dailyFat.min} - {dailyFat.max} g fat
         </div>
       </div>
     </div>
