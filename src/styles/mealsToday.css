@@ -1,0 +1,18 @@
+.meal {
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.meal-data-list {
+  display: flex;
+  gap: 2rem;
+}
+
+.meal-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
+}

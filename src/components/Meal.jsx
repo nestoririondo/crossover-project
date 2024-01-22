@@ -1,4 +1,5 @@
 import deleteIcon from "../assets/icons/delete_FILL0_wght400_GRAD0_opsz24.svg";
+import "../styles/mealsToday.css";
 
 const Meal = ({ data }) => {
   return (
